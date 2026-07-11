@@ -1,5 +1,6 @@
-<title>Isla & Matteo · A Wedding on the Amalfi Coast</title>
-<meta name="description" content="An editable coastal destination wedding website template — airy Amalfi style. Built in Canva. Envelope reveal, countdown, RSVP, travel, registry.">
+<meta charset="utf-8">
+<title>Isla & Matteo &middot; A Wedding on the Amalfi Coast</title>
+<meta name="description" content="An editable coastal destination wedding website template &mdash; airy Amalfi style. Built in Canva. Envelope reveal, countdown, RSVP, travel, registry.">
 <style>
   :root{
     --shell:#F3F1EC;
@@ -30,7 +31,7 @@
   .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.32em;font-size:11px;font-weight:600;color:var(--sea);}
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;position:relative;z-index:1;}
 
-  /* CSS wax seal (placeholder — swap for your own PNG later) */
+  /* CSS wax seal (placeholder &mdash; swap for your own PNG later) */
   .seal{width:104px;height:104px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 38% 30%,#3d7290,var(--sea) 52%,var(--sea-deep));
     box-shadow:inset 0 3px 7px rgba(255,255,255,.28),inset 0 -7px 12px rgba(0,0,0,.32),0 9px 20px rgba(37,72,92,.34);}
@@ -63,7 +64,7 @@
   .env-seal{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:4;transition:opacity .4s ease,transform .55s ease;}
   .env-seal .seal{width:clamp(74px,10vw,98px);height:clamp(74px,10vw,98px);}
   .env-prompt{font-family:var(--label);text-transform:uppercase;letter-spacing:.3em;font-size:11px;color:var(--ink-soft);}
-  .env-prompt::after{content:" ▾";color:var(--coral);}
+  .env-prompt::after{content:" \25BE";color:var(--coral);}
   .envelope:hover .env-flap{transform:rotateX(-16deg);}
   .envelope-cover.is-open .env-flap{transform:rotateX(-174deg);}
   .envelope-cover.is-open .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.5);}
@@ -148,10 +149,15 @@
   details{border-bottom:1px solid var(--rule);padding:20px 0;}
   summary{font-family:var(--display);font-size:24px;color:var(--sea);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:500;}
   summary::-webkit-details-marker{display:none;}
-  summary::after{content:"＋";color:var(--coral);font-size:24px;}
-  details[open] summary::after{content:"–";}
+  summary::after{content:"\002B";color:var(--coral);font-size:24px;}
+  details[open] summary::after{content:"\2013";}
   details p{color:var(--ink-soft);margin-top:12px;font-size:16px;}
 
+
+  .faq .qa{border-bottom:1px solid var(--rule);padding:22px 0;}
+  .faq .qa:last-child{border-bottom:none;}
+  .faq .q{font-family:var(--display);font-size:22px;color:var(--sea);margin:0 0 8px;}
+  .faq .a{color:var(--ink-soft);margin:0;font-size:16px;line-height:1.7;}
   footer{background:var(--sea);color:var(--shell);text-align:center;padding:66px 32px 58px;position:relative;z-index:1;}
   .footer-mono{font-family:var(--display);font-size:42px;letter-spacing:.06em;}
   .footer-mono span{color:var(--gold-soft);font-style:italic;}
@@ -170,7 +176,7 @@
     <p class="env-eyebrow label">You are invited to the wedding of</p>
     <h2 class="env-names">Isla <span>&amp;</span> Matteo</h2>
     <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the invitation">
-      <div class="env-body"><div class="em">Save the Date</div><div class="ed">Nineteenth of September · 2026</div></div>
+      <div class="env-body"><div class="em">Save the Date</div><div class="ed">Nineteenth of September &middot; 2026</div></div>
       <div class="env-flap"></div>
       <div class="env-seal"><div class="seal"><span class="mono">I&amp;M</span></div></div>
     </div>
@@ -199,14 +205,14 @@
     <p class="sub">invite you to celebrate their wedding by the sea</p>
     <div class="wave"><svg viewBox="0 0 300 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 Q 25 0 50 10 T 100 10 T 150 10 T 200 10 T 250 10 T 300 10" stroke="#B79A5C" stroke-width="1.4"/></svg></div>
     <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
-      <div class="cd-unit"><div class="cd-num" id="cd-days">—</div><div class="cd-lab">Days</div></div>
-      <div class="cd-unit"><div class="cd-num" id="cd-hours">—</div><div class="cd-lab">Hours</div></div>
-      <div class="cd-unit"><div class="cd-num" id="cd-mins">—</div><div class="cd-lab">Minutes</div></div>
-      <div class="cd-unit"><div class="cd-num" id="cd-secs">—</div><div class="cd-lab">Seconds</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-days">&mdash;</div><div class="cd-lab">Days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">&mdash;</div><div class="cd-lab">Hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-mins">&mdash;</div><div class="cd-lab">Minutes</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-secs">&mdash;</div><div class="cd-lab">Seconds</div></div>
     </div>
     <p class="sub" style="margin-top:24px;font-style:normal;font-family:var(--body);letter-spacing:.02em;font-size:17px;">
-      Saturday, the Nineteenth of September · Two Thousand Twenty-Six<br>
-      <span style="color:var(--coral);">Il San Pietro · Positano, Amalfi Coast</span>
+      Saturday, the Nineteenth of September &middot; Two Thousand Twenty-Six<br>
+      <span style="color:var(--coral);">Il San Pietro &middot; Positano, Amalfi Coast</span>
     </p>
   </div>
 </header>
@@ -218,7 +224,7 @@
       <div class="frame"><div class="mk">I&amp;M</div><div class="cap">Your favourite photo</div></div>
       <div>
         <h3>Two tides, one shore</h3>
-        <p>They met on a crowded ferry from Naples — Isla had lost her ticket to the wind and Matteo, without a word, simply handed the conductor two. By the time the boat reached the coast they had swapped names, numbers, and a very strong opinion about the correct way to eat sfogliatella.</p>
+        <p>They met on a crowded ferry from Naples &mdash; Isla had lost her ticket to the wind and Matteo, without a word, simply handed the conductor two. By the time the boat reached the coast they had swapped names, numbers, and a very strong opinion about the correct way to eat sfogliatella.</p>
         <p>Five summers later, they are returning to the water that introduced them. Nothing would make them happier than to have you there when they say yes.</p>
       </div>
     </div>
@@ -230,7 +236,7 @@
     <div class="sec-head reveal"><span class="label">Save the day</span><h2>The Celebration</h2></div>
     <div class="cards reveal">
       <div class="card"><div class="label role">The Ceremony</div><h3>Five o'clock</h3><p class="venue">The Cliffside Terrace</p><p class="meta"><strong>Il San Pietro di Positano</strong><br>Half past four for a five o'clock service<br>Golden hour over the bay</p></div>
-      <div class="card"><div class="label role">The Reception</div><h3>Seven o'clock</h3><p class="venue">The Lemon Garden</p><p class="meta"><strong>Dinner beneath the stars</strong><br>Coastal cocktail · Linen &amp; light colours<br>Dancing until the boats come in</p></div>
+      <div class="card"><div class="label role">The Reception</div><h3>Seven o'clock</h3><p class="venue">The Lemon Garden</p><p class="meta"><strong>Dinner beneath the stars</strong><br>Coastal cocktail &middot; Linen &amp; light colours<br>Dancing until the boats come in</p></div>
     </div>
   </div>
 </section>
@@ -252,9 +258,9 @@
 <section id="travel">
   <div class="wrap">
     <div class="sec-head reveal"><span class="label">Making a holiday of it</span><h2>Travel &amp; Stay</h2></div>
-    <p class="lede reveal">The Amalfi Coast rewards a slow visit. Here are our notes to make the journey easy — where to land, where to rest, and how to spend a few extra days by the sea.</p>
+    <p class="lede reveal">The Amalfi Coast rewards a slow visit. Here are our notes to make the journey easy &mdash; where to land, where to rest, and how to spend a few extra days by the sea.</p>
     <div class="travel reveal" style="margin-top:46px;">
-      <div class="tcard"><div class="tnum">I.</div><h3>Getting There</h3><p>Fly into Naples (NAP). From there, a private car or the ferry to Positano — we recommend the ferry for the view.</p></div>
+      <div class="tcard"><div class="tnum">I.</div><h3>Getting There</h3><p>Fly into Naples (NAP). From there, a private car or the ferry to Positano &mdash; we recommend the ferry for the view.</p></div>
       <div class="tcard"><div class="tnum">II.</div><h3>Where to Stay</h3><p>Room blocks at Il San Pietro and Le Sirenuse. Mention the Marino–Hart wedding for our rate.</p></div>
       <div class="tcard"><div class="tnum">III.</div><h3>Things to Do</h3><p>Boat to Capri, hike the Path of the Gods, or do gloriously little. All are correct.</p></div>
     </div>
@@ -265,7 +271,7 @@
   <div class="wrap">
     <div class="sec-head reveal"><span class="label">Your presence is the present</span><h2>Registry</h2></div>
     <div class="center-block reveal">
-      <p>Having you travel to the coast is the greatest gift of all. If you would like to give something more, we are gathering funds for our honeymoon sailing the islands — and a very good bottle of limoncello to toast you with.</p>
+      <p>Having you travel to the coast is the greatest gift of all. If you would like to give something more, we are gathering funds for our honeymoon sailing the islands &mdash; and a very good bottle of limoncello to toast you with.</p>
       <a class="btn ghost" href="#" onclick="return false;">View the Registry</a>
     </div>
   </div>
@@ -276,17 +282,7 @@
     <div class="sec-head reveal"><span class="label">Kindly reply by the First of July</span><h2>RSVP</h2></div>
     <div class="rsvp-wrap reveal">
       <p class="lede">We can hardly wait to celebrate with you by the sea. Please let us know if you can come.</p>
-      <form onsubmit="handleRsvp(event)">
-        <div class="field"><label for="name">Full Name(s)</label><input id="name" type="text" placeholder="The Marino family" required></div>
-        <div class="row2">
-          <div class="field"><label for="attending">Will you attend?</label><select id="attending" required><option value="" disabled selected>Please choose…</option><option>Joyfully accepts</option><option>Regretfully declines</option></select></div>
-          <div class="field"><label for="guests">Number in your party</label><input id="guests" type="number" min="1" max="6" value="2"></div>
-        </div>
-        <div class="field"><label for="menu">Menu preference</label><select id="menu"><option>No preference</option><option>Seafood</option><option>Vegetarian</option><option>Dietary requirements (note below)</option></select></div>
-        <div class="field"><label for="note">A note for the couple</label><textarea id="note" rows="3" placeholder="A song for the dancing, or anything we should know."></textarea></div>
-        <button class="btn" type="submit">Send Our Reply</button>
-      </form>
-      <p id="rsvp-msg" style="text-align:center;margin-top:20px;color:var(--coral);font-style:italic;font-family:var(--display);font-size:20px;" hidden></p>
+      <div style="text-align:center;margin-top:8px;"><a class="btn" href="#" onclick="return false;">RSVP</a></div>
     </div>
   </div>
 </section>
@@ -295,17 +291,17 @@
   <div class="wrap">
     <div class="sec-head reveal"><span class="label">Everything else</span><h2>Questions</h2></div>
     <div class="faq reveal">
-      <details><summary>What should I wear?</summary><p>Coastal cocktail — linens, light colours, and something you can dance in. The terrace is stone, so kind heels are your friend.</p></details>
-      <details><summary>Is the ceremony outdoors?</summary><p>Yes — on an open cliffside terrace above the bay. Bring sunglasses for the ceremony and a light layer for the evening breeze.</p></details>
-      <details><summary>Can you help with travel?</summary><p>Absolutely. Write to us and we will happily share ferry times, drivers, and our favourite places to eat along the coast.</p></details>
-      <details><summary>Are children welcome?</summary><p>We love them, but this will be an adults-only evening so everyone can relax by the water.</p></details>
+      <div class="qa"><h3 class="q">What should I wear?</h3><p class="a">Coastal cocktail &mdash; linens, light colours, and something you can dance in. The terrace is stone, so kind heels are your friend.</p></div>
+      <div class="qa"><h3 class="q">Is the ceremony outdoors?</h3><p class="a">Yes &mdash; on an open cliffside terrace above the bay. Bring sunglasses for the ceremony and a light layer for the evening breeze.</p></div>
+      <div class="qa"><h3 class="q">Can you help with travel?</h3><p class="a">Absolutely. Write to us and we will happily share ferry times, drivers, and our favourite places to eat along the coast.</p></div>
+      <div class="qa"><h3 class="q">Are children welcome?</h3><p class="a">We love them, but this will be an adults-only evening so everyone can relax by the water.</p></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="footer-mono">I <span>&amp;</span> M</div>
-  <p class="fdate">Positano · the Nineteenth of September, 2026</p>
+  <p class="fdate">Positano &middot; the Nineteenth of September, 2026</p>
   <div class="wave"><svg viewBox="0 0 300 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 Q 25 0 50 10 T 100 10 T 150 10 T 200 10 T 250 10 T 300 10" stroke="#D0BA8B" stroke-width="1.4"/></svg></div>
   <p class="hash">#IslaAndMatteoByTheSea</p>
 </footer>
@@ -321,7 +317,7 @@
   (function(){var cover=document.querySelector(".envelope-cover"),env=document.getElementById("envelope");if(!cover||!env)return;
     function openIt(){if(cover.classList.contains("is-open"))return;cover.classList.add("is-open");setTimeout(function(){cover.style.display="none";},1100);}
     env.addEventListener("click",openIt);env.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();openIt();}});})();
-  function handleRsvp(e){e.preventDefault();var m=document.getElementById("rsvp-msg");m.hidden=false;m.textContent="Thank you — your reply has been received. See you by the sea!";e.target.reset();}
+  function handleRsvp(e){e.preventDefault();var m=document.getElementById("rsvp-msg");m.hidden=false;m.textContent="Thank you &mdash; your reply has been received. See you by the sea!";e.target.reset();}
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}});},{threshold:.12});
   document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
 </script>
