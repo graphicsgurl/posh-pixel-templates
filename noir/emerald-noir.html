@@ -1,5 +1,6 @@
-<title>Vivienne & Sebastian · An Evening Wedding at Blackthorn Manor</title>
-<meta name="description" content="A dark editorial photobooth wedding website template — moody oxblood & gold. Editable in Canva. Envelope reveal, film-strip photos, RSVP, countdown.">
+<meta charset="utf-8">
+<title>Vivienne & Sebastian &middot; An Evening Wedding at Blackthorn Manor</title>
+<meta name="description" content="A dark editorial photobooth wedding website template &mdash; moody oxblood & gold. Editable in Canva. Envelope reveal, film-strip photos, RSVP, countdown.">
 <style>
   :root{
     --noir:#101613;
@@ -28,7 +29,7 @@
   .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.36em;font-size:11px;font-weight:500;color:var(--gold);}
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;position:relative;z-index:1;}
 
-  /* CSS wax seal (placeholder — swap for your own PNG later) */
+  /* CSS wax seal (placeholder &mdash; swap for your own PNG later) */
   .seal{width:104px;height:104px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 38% 30%,#a2303d,var(--oxblood) 52%,#5c141f);
     box-shadow:inset 0 3px 7px rgba(255,255,255,.18),inset 0 -7px 12px rgba(0,0,0,.5),0 9px 22px rgba(0,0,0,.55);}
@@ -60,7 +61,7 @@
   .env-seal{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:4;transition:opacity .4s ease,transform .55s ease;}
   .env-seal .seal{width:clamp(74px,10vw,98px);height:clamp(74px,10vw,98px);}
   .env-prompt{font-family:var(--label);text-transform:uppercase;letter-spacing:.3em;font-size:11px;color:var(--ivory-soft);}
-  .env-prompt::after{content:" ▾";color:var(--gold);}
+  .env-prompt::after{content:" \25BE";color:var(--gold);}
   .envelope:hover .env-flap{transform:rotateX(-16deg);}
   .envelope-cover.is-open .env-flap{transform:rotateX(-174deg);}
   .envelope-cover.is-open .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.5);}
@@ -147,10 +148,15 @@
   details{border-bottom:1px solid var(--rule);padding:20px 0;}
   summary{font-family:var(--display);font-size:24px;color:var(--gold);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;}
   summary::-webkit-details-marker{display:none;}
-  summary::after{content:"＋";color:var(--oxblood-lt);font-size:24px;}
-  details[open] summary::after{content:"–";}
+  summary::after{content:"\002B";color:var(--oxblood-lt);font-size:24px;}
+  details[open] summary::after{content:"\2013";}
   details p{color:var(--ivory-soft);margin-top:12px;font-size:16px;}
 
+
+  .faq .qa{border-bottom:1px solid var(--rule);padding:22px 0;}
+  .faq .qa:last-child{border-bottom:none;}
+  .faq .q{font-family:var(--display);font-size:22px;color:var(--gold);margin:0 0 8px;}
+  .faq .a{color:var(--ink-soft);margin:0;font-size:16px;line-height:1.7;}
   footer{background:#0F0C10;color:var(--ivory);text-align:center;padding:66px 32px 58px;position:relative;z-index:1;border-top:1px solid var(--rule);}
   .footer-mono{font-family:var(--display);font-size:42px;letter-spacing:.06em;color:var(--gold);}
   .footer-mono span{color:var(--oxblood-lt);font-style:italic;}
@@ -168,7 +174,7 @@
     <p class="env-eyebrow label">You are summoned to the wedding of</p>
     <h2 class="env-names">Vivienne <span>&amp;</span> Sebastian</h2>
     <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the invitation">
-      <div class="env-body"><div class="em">Save the Date</div><div class="ed">Thirty-First of October · 2026</div></div>
+      <div class="env-body"><div class="em">Save the Date</div><div class="ed">Thirty-First of October &middot; 2026</div></div>
       <div class="env-flap"></div>
       <div class="env-seal"><div class="seal"><span class="mono">V&amp;S</span></div></div>
     </div>
@@ -197,14 +203,14 @@
     <p class="sub">request your presence at their candlelit wedding</p>
     <div class="orn"><span class="d"></span></div>
     <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
-      <div class="cd-unit"><div class="cd-num" id="cd-days">—</div><div class="cd-lab">Days</div></div>
-      <div class="cd-unit"><div class="cd-num" id="cd-hours">—</div><div class="cd-lab">Hours</div></div>
-      <div class="cd-unit"><div class="cd-num" id="cd-mins">—</div><div class="cd-lab">Minutes</div></div>
-      <div class="cd-unit"><div class="cd-num" id="cd-secs">—</div><div class="cd-lab">Seconds</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-days">&mdash;</div><div class="cd-lab">Days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">&mdash;</div><div class="cd-lab">Hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-mins">&mdash;</div><div class="cd-lab">Minutes</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-secs">&mdash;</div><div class="cd-lab">Seconds</div></div>
     </div>
     <p class="sub" style="margin-top:24px;font-style:normal;letter-spacing:.02em;">
-      Saturday, the Thirty-First of October · Two Thousand Twenty-Six<br>
-      <span style="color:var(--oxblood-lt);">Blackthorn Manor · Hudson Valley, New York</span>
+      Saturday, the Thirty-First of October &middot; Two Thousand Twenty-Six<br>
+      <span style="color:var(--oxblood-lt);">Blackthorn Manor &middot; Hudson Valley, New York</span>
     </p>
   </div>
 </header>
@@ -215,13 +221,13 @@
     <div class="story reveal">
       <div class="photostrip">
         <div class="shot"><span class="mk">V&amp;S</span></div>
-        <div class="shot"><span class="mk">♥</span></div>
+        <div class="shot"><span class="mk">&hearts;</span></div>
         <div class="shot"><span class="mk">01</span></div>
       </div>
       <div>
         <h3>A slow-burning thing</h3>
         <p>They met in the back room of a record shop, both reaching for the last pressing of the same album. Sebastian let Vivienne have it on the condition that she let him hear it. That listening lasted until two in the morning, and neither of them has quite stopped since.</p>
-        <p>Six autumns on, they are marrying by candlelight in an old stone manor — the kind of night that asks for a good coat, a stiff drink, and the people they love most. That is you.</p>
+        <p>Six autumns on, they are marrying by candlelight in an old stone manor &mdash; the kind of night that asks for a good coat, a stiff drink, and the people they love most. That is you.</p>
       </div>
     </div>
   </div>
@@ -232,7 +238,7 @@
     <div class="sec-head reveal"><span class="label">Save the night</span><h2>The Celebration</h2></div>
     <div class="cards reveal">
       <div class="card"><div class="label role">The Ceremony</div><h3>Six o'clock</h3><p class="venue">The Candlelit Hall</p><p class="meta"><strong>Blackthorn Manor</strong><br>Half past five for a six o'clock service<br>Followed by cocktails in the library</p></div>
-      <div class="card"><div class="label role">The Reception</div><h3>Eight o'clock</h3><p class="venue">The Great Room &amp; Garden</p><p class="meta"><strong>Dinner, dancing &amp; mischief</strong><br>Black tie · Dark florals encouraged<br>Carriages at two o'clock</p></div>
+      <div class="card"><div class="label role">The Reception</div><h3>Eight o'clock</h3><p class="venue">The Great Room &amp; Garden</p><p class="meta"><strong>Dinner, dancing &amp; mischief</strong><br>Black tie &middot; Dark florals encouraged<br>Carriages at two o'clock</p></div>
     </div>
   </div>
 </section>
@@ -243,7 +249,7 @@
     <div class="timeline reveal">
       <div class="tl-row"><div class="tl-time">5:30</div><div><div class="tl-title">Doors Open</div><div class="tl-desc">Mulled wine in the entrance hall.</div></div></div>
       <div class="tl-row"><div class="tl-time">6:00</div><div><div class="tl-title">Ceremony</div><div class="tl-desc">By candlelight. Please be seated by ten to six.</div></div></div>
-      <div class="tl-row"><div class="tl-time">6:45</div><div><div class="tl-title">Cocktails &amp; the Photobooth</div><div class="tl-desc">Portraits in the library — do make trouble.</div></div></div>
+      <div class="tl-row"><div class="tl-time">6:45</div><div><div class="tl-title">Cocktails &amp; the Photobooth</div><div class="tl-desc">Portraits in the library &mdash; do make trouble.</div></div></div>
       <div class="tl-row"><div class="tl-time">8:00</div><div><div class="tl-title">Dinner Is Served</div><div class="tl-desc">A long, candlelit table in the Great Room.</div></div></div>
       <div class="tl-row"><div class="tl-time">10:00</div><div><div class="tl-title">First Dance &amp; Dancing</div><div class="tl-desc">The band plays until the small hours.</div></div></div>
       <div class="tl-row"><div class="tl-time">2:00</div><div><div class="tl-title">Carriages</div><div class="tl-desc">A last drink, and out into the dark.</div></div></div>
@@ -254,7 +260,7 @@
 <section id="travel">
   <div class="wrap">
     <div class="sec-head reveal"><span class="label">Staying the night</span><h2>Travel &amp; Stay</h2></div>
-    <p class="lede reveal">The manor is an hour and a half north of the city. We recommend making a weekend of it — the valley is at its most beautiful, and most haunting, in late October.</p>
+    <p class="lede reveal">The manor is an hour and a half north of the city. We recommend making a weekend of it &mdash; the valley is at its most beautiful, and most haunting, in late October.</p>
     <div class="travel reveal" style="margin-top:46px;">
       <div class="tcard"><div class="tnum">I.</div><h3>Getting There</h3><p>Ninety minutes from Manhattan by car, or the train to Hudson with shuttles to the manor.</p></div>
       <div class="tcard"><div class="tnum">II.</div><h3>Where to Stay</h3><p>Rooms held at The Maker and the Rhinecliff. Mention the Blackwood–Vane wedding.</p></div>
@@ -267,7 +273,7 @@
   <div class="wrap">
     <div class="sec-head reveal"><span class="label">Your presence is the present</span><h2>Registry</h2></div>
     <div class="center-block reveal">
-      <p>Your being there — on a dark night, in the middle of nowhere — means everything. If you would like to give more, we are gathering funds for a winter honeymoon somewhere with very good ghosts and very old wine.</p>
+      <p>Your being there &mdash; on a dark night, in the middle of nowhere &mdash; means everything. If you would like to give more, we are gathering funds for a winter honeymoon somewhere with very good ghosts and very old wine.</p>
       <a class="btn ghost" href="#" onclick="return false;">View the Registry</a>
     </div>
   </div>
@@ -278,17 +284,7 @@
     <div class="sec-head reveal"><span class="label">Kindly reply by the First of October</span><h2>RSVP</h2></div>
     <div class="rsvp-wrap reveal">
       <p class="lede">We can hardly wait to raise a glass with you. Please let us know if you can come.</p>
-      <form onsubmit="handleRsvp(event)">
-        <div class="field"><label for="name">Full Name(s)</label><input id="name" type="text" placeholder="The Vane household" required></div>
-        <div class="row2">
-          <div class="field"><label for="attending">Will you attend?</label><select id="attending" required><option value="" disabled selected>Please choose…</option><option>Joyfully accepts</option><option>Regretfully declines</option></select></div>
-          <div class="field"><label for="guests">Number in your party</label><input id="guests" type="number" min="1" max="6" value="2"></div>
-        </div>
-        <div class="field"><label for="menu">Menu preference</label><select id="menu"><option>No preference</option><option>Beef</option><option>Vegetarian</option><option>Dietary requirements (note below)</option></select></div>
-        <div class="field"><label for="note">A note for the couple</label><textarea id="note" rows="3" placeholder="A song for the witching hour, or anything we should know."></textarea></div>
-        <button class="btn" type="submit">Send Our Reply</button>
-      </form>
-      <p id="rsvp-msg" style="text-align:center;margin-top:20px;color:var(--oxblood-lt);font-style:italic;font-family:var(--display);font-size:20px;" hidden></p>
+      <div style="text-align:center;margin-top:8px;"><a class="btn" href="#" onclick="return false;">RSVP</a></div>
     </div>
   </div>
 </section>
@@ -297,17 +293,17 @@
   <div class="wrap">
     <div class="sec-head reveal"><span class="label">Everything else</span><h2>Questions</h2></div>
     <div class="faq reveal">
-      <details><summary>What should I wear?</summary><p>Black tie with a dark heart — deep jewel tones, moody florals, and anything that looks good by candlelight. This is a night to dress for.</p></details>
-      <details><summary>Is there a photobooth?</summary><p>There is, in the library, all night. Consider it your assignment to leave us at least one incriminating strip.</p></details>
-      <details><summary>How cold will it be?</summary><p>It is late October in the valley — bring a proper coat. The ceremony is indoors and warm; the garden is not.</p></details>
-      <details><summary>Are children welcome?</summary><p>We adore them, but this is a late, adults-only affair — a proper grown-up night out.</p></details>
+      <div class="qa"><h3 class="q">What should I wear?</h3><p class="a">Black tie with a dark heart &mdash; deep jewel tones, moody florals, and anything that looks good by candlelight. This is a night to dress for.</p></div>
+      <div class="qa"><h3 class="q">Is there a photobooth?</h3><p class="a">There is, in the library, all night. Consider it your assignment to leave us at least one incriminating strip.</p></div>
+      <div class="qa"><h3 class="q">How cold will it be?</h3><p class="a">It is late October in the valley &mdash; bring a proper coat. The ceremony is indoors and warm; the garden is not.</p></div>
+      <div class="qa"><h3 class="q">Are children welcome?</h3><p class="a">We adore them, but this is a late, adults-only affair &mdash; a proper grown-up night out.</p></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="footer-mono">V <span>&amp;</span> S</div>
-  <p class="fdate">Blackthorn Manor · the Thirty-First of October, 2026</p>
+  <p class="fdate">Blackthorn Manor &middot; the Thirty-First of October, 2026</p>
   <div class="orn"><span class="d"></span></div>
   <p class="hash">#TheBlackwoodVaneAffair</p>
 </footer>
@@ -323,7 +319,7 @@
   (function(){var cover=document.querySelector(".envelope-cover"),env=document.getElementById("envelope");if(!cover||!env)return;
     function openIt(){if(cover.classList.contains("is-open"))return;cover.classList.add("is-open");setTimeout(function(){cover.style.display="none";},1100);}
     env.addEventListener("click",openIt);env.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();openIt();}});})();
-  function handleRsvp(e){e.preventDefault();var m=document.getElementById("rsvp-msg");m.hidden=false;m.textContent="Thank you — your reply has been received. Until the thirty-first.";e.target.reset();}
+  function handleRsvp(e){e.preventDefault();var m=document.getElementById("rsvp-msg");m.hidden=false;m.textContent="Thank you &mdash; your reply has been received. Until the thirty-first.";e.target.reset();}
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}});},{threshold:.12});
   document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
 </script>
