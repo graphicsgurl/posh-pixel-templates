@@ -1,0 +1,329 @@
+<title>Vivienne & Sebastian · An Evening Wedding at Blackthorn Manor</title>
+<meta name="description" content="A dark editorial photobooth wedding website template — moody oxblood & gold. Editable in Canva. Envelope reveal, film-strip photos, RSVP, countdown.">
+<style>
+  :root{
+    --noir:#141116;
+    --noir-soft:#1C171C;
+    --panel:#211B21;
+    --oxblood:#8A2433;
+    --oxblood-lt:#A83646;
+    --gold:#B79150;
+    --gold-soft:#D0B274;
+    --ivory:#ECE4D8;
+    --ivory-soft:#A99E8F;
+    --rule:#3A333A;
+    --display:"Bodoni MT","Didot","Hoefler Text",Didone,"Times New Roman",serif;
+    --body:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+    --label:ui-sans-serif,"Optima","Gill Sans",-apple-system,Segoe UI,sans-serif;
+    --wrap:1080px;
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+  body{margin:0;background:var(--noir);color:var(--ivory);font-family:var(--body);font-size:18px;line-height:1.75;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance;letter-spacing:.01em;}
+  p{margin:0;}
+  a{color:inherit;}
+  .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.36em;font-size:11px;font-weight:500;color:var(--gold);}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px;position:relative;z-index:1;}
+
+  /* CSS wax seal (placeholder — swap for your own PNG later) */
+  .seal{width:104px;height:104px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 38% 30%,#a2303d,var(--oxblood) 52%,#5c141f);
+    box-shadow:inset 0 3px 7px rgba(255,255,255,.18),inset 0 -7px 12px rgba(0,0,0,.5),0 9px 22px rgba(0,0,0,.55);}
+  .seal::before{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid rgba(255,255,255,.14);}
+  .seal .mono{font-family:var(--display);font-size:36px;color:rgba(0,0,0,.34);}
+
+  nav{position:sticky;top:0;z-index:20;background:rgba(20,17,22,.82);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--rule);}
+  .nav-inner{max-width:var(--wrap);margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .monogram{font-family:var(--display);font-size:23px;letter-spacing:.1em;color:var(--gold);}
+  .nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+  .nav-links a{font-family:var(--label);text-transform:uppercase;letter-spacing:.2em;font-size:11px;text-decoration:none;color:var(--ivory-soft);padding:4px 0;border-bottom:1px solid transparent;transition:.25s;}
+  .nav-links a:hover{color:var(--gold);border-color:var(--oxblood-lt);}
+  @media(max-width:760px){.nav-links{display:none;}.nav-inner{justify-content:center;}}
+
+  /* Envelope reveal */
+  .envelope-cover{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 24px;
+    background:radial-gradient(130% 100% at 50% 24%,var(--noir-soft),var(--noir) 66%);}
+  .envelope-cover.is-open{opacity:0;pointer-events:none;transition:opacity .9s ease;}
+  .env-inner{display:flex;flex-direction:column;align-items:center;gap:24px;}
+  .env-eyebrow{color:var(--oxblood-lt);}
+  .env-names{font-family:var(--display);font-size:clamp(30px,5.6vw,54px);color:var(--gold);margin:0;line-height:1;}
+  .env-names span{color:var(--oxblood-lt);font-style:italic;}
+  .envelope{position:relative;width:clamp(288px,42vw,430px);aspect-ratio:7/5;cursor:pointer;perspective:1500px;filter:drop-shadow(0 26px 50px rgba(0,0,0,.6));}
+  .env-body{position:absolute;inset:0;background:var(--panel);border:1px solid var(--rule);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;overflow:hidden;}
+  .env-body::before{content:"";position:absolute;inset:11px;border:1px solid var(--rule);pointer-events:none;}
+  .env-body .em{font-family:var(--display);font-size:clamp(20px,3vw,27px);color:var(--gold);}
+  .env-body .ed{font-family:var(--label);text-transform:uppercase;letter-spacing:.3em;font-size:10.5px;color:var(--ivory-soft);}
+  .env-flap{position:absolute;left:0;top:0;width:100%;height:64%;background:var(--noir-soft);border:1px solid var(--rule);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;backface-visibility:hidden;transition:transform 1s cubic-bezier(.7,.04,.2,1);z-index:3;}
+  .env-seal{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);z-index:4;transition:opacity .4s ease,transform .55s ease;}
+  .env-seal .seal{width:clamp(74px,10vw,98px);height:clamp(74px,10vw,98px);}
+  .env-prompt{font-family:var(--label);text-transform:uppercase;letter-spacing:.3em;font-size:11px;color:var(--ivory-soft);}
+  .env-prompt::after{content:" ▾";color:var(--gold);}
+  .envelope:hover .env-flap{transform:rotateX(-16deg);}
+  .envelope-cover.is-open .env-flap{transform:rotateX(-174deg);}
+  .envelope-cover.is-open .env-seal{opacity:0;transform:translate(-50%,-50%) scale(.5);}
+  @media (prefers-reduced-motion:reduce){.env-flap,.env-seal,.envelope-cover.is-open{transition:opacity .2s ease;}}
+
+  header.hero{text-align:center;padding:98px 0 84px;position:relative;overflow:hidden;border-bottom:1px solid var(--rule);
+    background:radial-gradient(120% 80% at 50% 0%,#241a20 0%,var(--noir) 60%);}
+  .hero-inner{position:relative;z-index:1;}
+  .hero .eyebrow{margin-bottom:22px;}
+  .hero .amp{display:block;font-family:var(--display);color:var(--oxblood-lt);font-size:clamp(38px,7vw,64px);font-style:italic;line-height:.7;margin:6px 0;}
+  .hero h1{font-size:clamp(52px,11vw,116px);color:var(--gold);line-height:.98;}
+  .hero .sub{margin-top:28px;font-style:italic;color:var(--ivory-soft);font-size:clamp(19px,2.6vw,24px);}
+  .orn{display:flex;align-items:center;justify-content:center;gap:14px;margin:32px auto 0;max-width:320px;}
+  .orn::before,.orn::after{content:"";height:1px;flex:1;background:var(--rule);}
+  .orn .d{width:6px;height:6px;transform:rotate(45deg);background:var(--gold);}
+
+  .countdown{display:flex;justify-content:center;gap:clamp(20px,6vw,56px);margin:52px 0 8px;}
+  .cd-unit{text-align:center;min-width:56px;}
+  .cd-num{font-family:var(--display);font-size:clamp(38px,6vw,58px);color:var(--gold);line-height:1;font-variant-numeric:tabular-nums;}
+  .cd-lab{font-family:var(--label);text-transform:uppercase;letter-spacing:.24em;font-size:10px;color:var(--ivory-soft);margin-top:10px;}
+
+  section{padding:80px 0;position:relative;}
+  section+section{border-top:1px solid var(--rule);}
+  .sec-head{text-align:center;margin-bottom:50px;}
+  .sec-head h2{font-size:clamp(34px,5vw,52px);color:var(--gold);margin-top:14px;}
+  .sec-head .label{display:block;color:var(--oxblood-lt);}
+  .lede{max-width:60ch;margin:0 auto;text-align:center;color:var(--ivory-soft);}
+
+  /* Story with film-strip photo motif */
+  .story{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  @media(max-width:760px){.story{grid-template-columns:1fr;gap:40px;}}
+  .story p+p{margin-top:16px;}
+  .story h3{font-family:var(--display);font-size:28px;color:var(--oxblood-lt);margin-bottom:10px;}
+  .photostrip{position:relative;background:#0d0b0d;padding:20px 22px;max-width:270px;margin:0 auto;box-shadow:0 24px 50px -28px rgba(0,0,0,.8);}
+  .photostrip::before,.photostrip::after{content:"";position:absolute;top:8px;bottom:8px;width:8px;background:repeating-linear-gradient(to bottom,transparent 0 7px,rgba(255,255,255,.16) 7px 14px);}
+  .photostrip::before{left:5px;}.photostrip::after{right:5px;}
+  .photostrip .shot{aspect-ratio:1/1;background:var(--panel);border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;color:var(--ivory-soft);overflow:hidden;}
+  .photostrip .shot+.shot{margin-top:12px;}
+  .photostrip .shot img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photostrip .shot .mk{font-family:var(--display);font-size:30px;color:var(--gold-soft);}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:34px;}
+  @media(max-width:760px){.cards{grid-template-columns:1fr;}}
+  .card{background:var(--panel);border:1px solid var(--rule);padding:44px 40px;text-align:center;position:relative;}
+  .card::after{content:"";position:absolute;inset:9px;border:1px solid var(--rule);pointer-events:none;}
+  .card h3{font-size:30px;color:var(--gold);margin-bottom:6px;}
+  .card .role{margin-bottom:20px;}
+  .card .venue{font-style:italic;font-size:22px;margin-bottom:4px;color:var(--ivory);}
+  .card .meta{color:var(--ivory-soft);font-size:16px;line-height:1.9;}
+  .card .meta strong{font-weight:400;color:var(--ivory);}
+
+  .timeline{max-width:600px;margin:0 auto;}
+  .tl-row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:baseline;}
+  .tl-row:last-child{border-bottom:none;}
+  .tl-time{font-family:var(--display);font-size:24px;color:var(--oxblood-lt);font-variant-numeric:tabular-nums;}
+  .tl-title{font-family:var(--display);font-size:21px;color:var(--gold);}
+  .tl-desc{color:var(--ivory-soft);font-size:15.5px;margin-top:4px;}
+
+  .travel{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  @media(max-width:760px){.travel{grid-template-columns:1fr;}}
+  .tcard{text-align:center;padding:8px;}
+  .tcard .tnum{font-family:var(--display);font-size:30px;color:var(--oxblood-lt);}
+  .tcard h3{font-size:22px;color:var(--gold);margin:10px 0 8px;}
+  .tcard p{color:var(--ivory-soft);font-size:16px;}
+
+  .center-block{text-align:center;max-width:64ch;margin:0 auto;}
+  .center-block p{color:var(--ivory-soft);margin-top:6px;}
+  .btn{display:inline-block;margin-top:28px;font-family:var(--label);text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--noir);background:var(--gold);padding:15px 38px;text-decoration:none;border:1px solid var(--gold);transition:.25s;}
+  .btn:hover{background:var(--gold-soft);}
+  .btn.ghost{background:transparent;color:var(--gold);}
+  .btn.ghost:hover{background:var(--gold);color:var(--noir);}
+
+  .rsvp-wrap{max-width:620px;margin:0 auto;}
+  form{display:grid;gap:20px;margin-top:14px;}
+  .field{display:grid;gap:7px;text-align:left;}
+  .field label{font-family:var(--label);text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--ivory-soft);}
+  .field input,.field select,.field textarea{font-family:var(--body);font-size:16px;color:var(--ivory);background:var(--noir-soft);border:1px solid var(--rule);padding:13px 15px;border-radius:0;}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold);}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:560px){.row2{grid-template-columns:1fr;}}
+  form .btn{border:none;cursor:pointer;justify-self:center;}
+
+  .faq{max-width:720px;margin:0 auto;}
+  details{border-bottom:1px solid var(--rule);padding:20px 0;}
+  summary{font-family:var(--display);font-size:24px;color:var(--gold);cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;}
+  summary::-webkit-details-marker{display:none;}
+  summary::after{content:"＋";color:var(--oxblood-lt);font-size:24px;}
+  details[open] summary::after{content:"–";}
+  details p{color:var(--ivory-soft);margin-top:12px;font-size:16px;}
+
+  footer{background:#0F0C10;color:var(--ivory);text-align:center;padding:66px 32px 58px;position:relative;z-index:1;border-top:1px solid var(--rule);}
+  .footer-mono{font-family:var(--display);font-size:42px;letter-spacing:.06em;color:var(--gold);}
+  .footer-mono span{color:var(--oxblood-lt);font-style:italic;}
+  footer .fdate{font-style:italic;margin-top:10px;color:var(--ivory-soft);}
+  footer .orn{max-width:200px;margin:20px auto 0;}
+  footer .hash{font-family:var(--label);text-transform:uppercase;letter-spacing:.26em;font-size:11px;color:var(--gold-soft);margin-top:22px;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+</style>
+
+<section class="envelope-cover" id="invitation">
+  <div class="env-inner">
+    <p class="env-eyebrow label">You are summoned to the wedding of</p>
+    <h2 class="env-names">Vivienne <span>&amp;</span> Sebastian</h2>
+    <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open the invitation">
+      <div class="env-body"><div class="em">Save the Date</div><div class="ed">Thirty-First of October · 2026</div></div>
+      <div class="env-flap"></div>
+      <div class="env-seal"><div class="seal"><span class="mono">V&amp;S</span></div></div>
+    </div>
+    <p class="env-prompt">Break the seal</p>
+  </div>
+</section>
+
+<nav id="site-top">
+  <div class="nav-inner">
+    <div class="monogram">V&nbsp;&amp;&nbsp;S</div>
+    <ul class="nav-links">
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#travel">Travel</a></li>
+      <li><a href="#registry">Registry</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow label">Together, as the evening falls</div>
+    <h1>Vivienne<span class="amp">&amp;</span>Sebastian</h1>
+    <p class="sub">request your presence at their candlelit wedding</p>
+    <div class="orn"><span class="d"></span></div>
+    <div class="countdown" id="countdown" aria-label="Countdown to the wedding">
+      <div class="cd-unit"><div class="cd-num" id="cd-days">—</div><div class="cd-lab">Days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">—</div><div class="cd-lab">Hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-mins">—</div><div class="cd-lab">Minutes</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-secs">—</div><div class="cd-lab">Seconds</div></div>
+    </div>
+    <p class="sub" style="margin-top:24px;font-style:normal;letter-spacing:.02em;">
+      Saturday, the Thirty-First of October · Two Thousand Twenty-Six<br>
+      <span style="color:var(--oxblood-lt);">Blackthorn Manor · Hudson Valley, New York</span>
+    </p>
+  </div>
+</header>
+
+<section id="story">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="label">How it began</span><h2>Our Story</h2></div>
+    <div class="story reveal">
+      <div class="photostrip">
+        <div class="shot"><span class="mk">V&amp;S</span></div>
+        <div class="shot"><span class="mk">♥</span></div>
+        <div class="shot"><span class="mk">01</span></div>
+      </div>
+      <div>
+        <h3>A slow-burning thing</h3>
+        <p>They met in the back room of a record shop, both reaching for the last pressing of the same album. Sebastian let Vivienne have it on the condition that she let him hear it. That listening lasted until two in the morning, and neither of them has quite stopped since.</p>
+        <p>Six autumns on, they are marrying by candlelight in an old stone manor — the kind of night that asks for a good coat, a stiff drink, and the people they love most. That is you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="details">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="label">Save the night</span><h2>The Celebration</h2></div>
+    <div class="cards reveal">
+      <div class="card"><div class="label role">The Ceremony</div><h3>Six o'clock</h3><p class="venue">The Candlelit Hall</p><p class="meta"><strong>Blackthorn Manor</strong><br>Half past five for a six o'clock service<br>Followed by cocktails in the library</p></div>
+      <div class="card"><div class="label role">The Reception</div><h3>Eight o'clock</h3><p class="venue">The Great Room &amp; Garden</p><p class="meta"><strong>Dinner, dancing &amp; mischief</strong><br>Black tie · Dark florals encouraged<br>Carriages at two o'clock</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="label">The order of the evening</span><h2>Schedule</h2></div>
+    <div class="timeline reveal">
+      <div class="tl-row"><div class="tl-time">5:30</div><div><div class="tl-title">Doors Open</div><div class="tl-desc">Mulled wine in the entrance hall.</div></div></div>
+      <div class="tl-row"><div class="tl-time">6:00</div><div><div class="tl-title">Ceremony</div><div class="tl-desc">By candlelight. Please be seated by ten to six.</div></div></div>
+      <div class="tl-row"><div class="tl-time">6:45</div><div><div class="tl-title">Cocktails &amp; the Photobooth</div><div class="tl-desc">Portraits in the library — do make trouble.</div></div></div>
+      <div class="tl-row"><div class="tl-time">8:00</div><div><div class="tl-title">Dinner Is Served</div><div class="tl-desc">A long, candlelit table in the Great Room.</div></div></div>
+      <div class="tl-row"><div class="tl-time">10:00</div><div><div class="tl-title">First Dance &amp; Dancing</div><div class="tl-desc">The band plays until the small hours.</div></div></div>
+      <div class="tl-row"><div class="tl-time">2:00</div><div><div class="tl-title">Carriages</div><div class="tl-desc">A last drink, and out into the dark.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="travel">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="label">Staying the night</span><h2>Travel &amp; Stay</h2></div>
+    <p class="lede reveal">The manor is an hour and a half north of the city. We recommend making a weekend of it — the valley is at its most beautiful, and most haunting, in late October.</p>
+    <div class="travel reveal" style="margin-top:46px;">
+      <div class="tcard"><div class="tnum">I.</div><h3>Getting There</h3><p>Ninety minutes from Manhattan by car, or the train to Hudson with shuttles to the manor.</p></div>
+      <div class="tcard"><div class="tnum">II.</div><h3>Where to Stay</h3><p>Rooms held at The Maker and the Rhinecliff. Mention the Blackwood–Vane wedding.</p></div>
+      <div class="tcard"><div class="tnum">III.</div><h3>Things to Do</h3><p>Wander the orchards, tour the estate, or find the fireplace and stay by it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="registry">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="label">Your presence is the present</span><h2>Registry</h2></div>
+    <div class="center-block reveal">
+      <p>Your being there — on a dark night, in the middle of nowhere — means everything. If you would like to give more, we are gathering funds for a winter honeymoon somewhere with very good ghosts and very old wine.</p>
+      <a class="btn ghost" href="#" onclick="return false;">View the Registry</a>
+    </div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="label">Kindly reply by the First of October</span><h2>RSVP</h2></div>
+    <div class="rsvp-wrap reveal">
+      <p class="lede">We can hardly wait to raise a glass with you. Please let us know if you can come.</p>
+      <form onsubmit="handleRsvp(event)">
+        <div class="field"><label for="name">Full Name(s)</label><input id="name" type="text" placeholder="The Vane household" required></div>
+        <div class="row2">
+          <div class="field"><label for="attending">Will you attend?</label><select id="attending" required><option value="" disabled selected>Please choose…</option><option>Joyfully accepts</option><option>Regretfully declines</option></select></div>
+          <div class="field"><label for="guests">Number in your party</label><input id="guests" type="number" min="1" max="6" value="2"></div>
+        </div>
+        <div class="field"><label for="menu">Menu preference</label><select id="menu"><option>No preference</option><option>Beef</option><option>Vegetarian</option><option>Dietary requirements (note below)</option></select></div>
+        <div class="field"><label for="note">A note for the couple</label><textarea id="note" rows="3" placeholder="A song for the witching hour, or anything we should know."></textarea></div>
+        <button class="btn" type="submit">Send Our Reply</button>
+      </form>
+      <p id="rsvp-msg" style="text-align:center;margin-top:20px;color:var(--oxblood-lt);font-style:italic;font-family:var(--display);font-size:20px;" hidden></p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="label">Everything else</span><h2>Questions</h2></div>
+    <div class="faq reveal">
+      <details><summary>What should I wear?</summary><p>Black tie with a dark heart — deep jewel tones, moody florals, and anything that looks good by candlelight. This is a night to dress for.</p></details>
+      <details><summary>Is there a photobooth?</summary><p>There is, in the library, all night. Consider it your assignment to leave us at least one incriminating strip.</p></details>
+      <details><summary>How cold will it be?</summary><p>It is late October in the valley — bring a proper coat. The ceremony is indoors and warm; the garden is not.</p></details>
+      <details><summary>Are children welcome?</summary><p>We adore them, but this is a late, adults-only affair — a proper grown-up night out.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-mono">V <span>&amp;</span> S</div>
+  <p class="fdate">Blackthorn Manor · the Thirty-First of October, 2026</p>
+  <div class="orn"><span class="d"></span></div>
+  <p class="hash">#TheBlackwoodVaneAffair</p>
+</footer>
+
+<script>
+  var WEDDING = new Date("2026-10-31T18:00:00-04:00").getTime();
+  function tick(){var d=WEDDING-Date.now();if(d<0)d=0;
+    document.getElementById("cd-days").textContent=Math.floor(d/86400000);
+    document.getElementById("cd-hours").textContent=String(Math.floor(d%86400000/3600000)).padStart(2,"0");
+    document.getElementById("cd-mins").textContent=String(Math.floor(d%3600000/60000)).padStart(2,"0");
+    document.getElementById("cd-secs").textContent=String(Math.floor(d%60000/1000)).padStart(2,"0");}
+  tick();setInterval(tick,1000);
+  (function(){var cover=document.querySelector(".envelope-cover"),env=document.getElementById("envelope");if(!cover||!env)return;
+    function openIt(){if(cover.classList.contains("is-open"))return;cover.classList.add("is-open");setTimeout(function(){cover.style.display="none";},1100);}
+    env.addEventListener("click",openIt);env.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();openIt();}});})();
+  function handleRsvp(e){e.preventDefault();var m=document.getElementById("rsvp-msg");m.hidden=false;m.textContent="Thank you — your reply has been received. Until the thirty-first.";e.target.reset();}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}});},{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+</script>
