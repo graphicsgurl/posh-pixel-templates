@@ -169,9 +169,16 @@
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease;}
   .reveal.in{opacity:1;transform:none;}
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  /* single-column for clean Canva mobile reflow */
+  .story{grid-template-columns:1fr !important;max-width:640px;margin-left:auto;margin-right:auto;text-align:center;}
+  .story .frame{max-width:400px;margin:0 auto;}
+  .cards{grid-template-columns:1fr !important;max-width:640px;margin-left:auto;margin-right:auto;}
+  .travel{grid-template-columns:1fr !important;max-width:560px;margin-left:auto;margin-right:auto;}
+  .photostrip{margin:0 auto;}
 </style>
 
-<section class="envelope-cover" id="invitation" data-document-role="page" data-label="Invitation">
+<section class="envelope-cover" id="invitation" data-document-role="page" data-label="Home">
   <div class="env-inner">
     <p class="env-eyebrow label">You are invited to the wedding of</p>
     <h2 class="env-names">Isla <span>&amp;</span> Matteo</h2>
@@ -273,7 +280,7 @@
   </div>
 </section>
 
-<section id="faq" data-document-role="page" data-label="Questions">
+<section id="faq" data-document-role="page" data-label="FAQ">
   <div class="wrap">
     <div class="sec-head reveal"><span class="label">Everything else</span><h2>Questions</h2></div>
     <div class="faq reveal">
